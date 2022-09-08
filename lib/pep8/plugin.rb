@@ -121,7 +121,7 @@ module Danger
     def comment_inline(errors=[])
       errors.each do |error|
         file, line, column, reason = error.split(":")
-        message(reason.strip.gsub("'", "`"), file: file, line: line.to_i)
+        message(reason.strip.gsub("'", "`"), file: file.delete_prefix("./"), line: line.to_i)
       end
     end
 
